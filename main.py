@@ -1,5 +1,7 @@
 import png
 
-startingvar = input()
-startingvar = startingvar.split(' ')
 
+
+import texttopng
+
+texttopng.ttpf()
