@@ -2,23 +2,40 @@ import png
 
 
 def ttpf():
+    global data
+    
     startingvar = input().split(' ')
     
-    f = open("test.png", 'wb')
+    if startingvar[1] == '-w':
 
-    dire = startingvar[1]
+        dire = startingvar[2]
+        
+        data = ()
+        
+        with open(dire,"r") as f:
+            data = f.read
 
-    options = []
+        options = []
 
-    for item in startingvar:
-        if startingvar.index(item) > 1:
-            options.append(item)
+        for item in startingvar:
+            if startingvar.index(item) > 2:
+                options.append(item)
 
-    im = png.Writer(greyscale=True,width=256,height=3)
 
-    im.write(f, [range(256),
-                 range(256),
-                 range(256)])
 
-    f.close()
+        f = open("test.png", 'wb')
+        
+        im = png.Writer(greyscale=True,width=3840,height=2160,background=(1,))
+
+        im.write(f, [range(1,256),
+                    range(1,256),
+                    range(1,256)])
+
+        f.close()
+    if startingvar[1] == '-r':
+        print("reading")
+        
+    else: ttpf()
+    
 ttpf()
+print(data)

@@ -1,2 +1,2 @@
 
-print([range(2)])
+print(type(tuple(1)))
